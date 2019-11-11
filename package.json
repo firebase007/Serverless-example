@@ -1,0 +1,24 @@
+{
+  "name": "serverless-example",
+  "version": "1.0.0",
+  "description": "Serverless Example for LogRocket Blog",
+  "main": "handler.js",
+  "scripts": {
+    "start": "serverless offline start --skipCacheInvalidation",
+    "deploy": "sls deploy -v"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.9",
+    "serverless-http": "^2.3.0",
+    "uuid": "^3.3.3"
+  },
+  "author": "Alexander Nnakwue",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-offline": "^5.12.0",
+    "serverless-dotenv": "^1.0.0-beta.2",
+    "serverless-dotenv-plugin": "^2.1.1"
+  }
+}

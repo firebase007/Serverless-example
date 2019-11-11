@@ -1,0 +1,38 @@
+# Welcome to Serverless!
+service: serverless-example
+app: product-api
+
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-1
+
+
+functions:
+  productAPI:
+    handler: Controller/products.handler
+    events:
+        - http:
+            path: /index
+            method: get
+
+
+        - http:
+            path: /
+            method: post
+
+
+        - http:
+            path: /
+            method: get
+
+        - http:
+            path: /{productId}
+            method: get
+
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
