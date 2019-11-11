@@ -20,23 +20,15 @@ app.get('/index', async (req, res) => {
 
 //  function for creating a new product
 app.post('/', async (req, res) => {
-
   try {
-
    await dbConnection();
-
    const data  = req.body;
-
    const {name, type, description, cost} = data;
-
-   if(!data) {
+ if(!data) {
      return "Please pass all required fields!"
    }
-
    const dataToSave = {name,type,description,cost,productId:uuid()};
-
    let createProduct =  await ProductService.createProduct(dataToSave);
-
    if (createProduct) {
      return res.status(200).send(
        createProduct
@@ -46,18 +38,13 @@ app.post('/', async (req, res) => {
     //  handle errors here
     console.log(error, "error!!");
   }
-
 })
-
 
 //  function for getting all products
 app.get('/', async (req, res) => {
-
-  try {
+try {
     await dbConnection();
-
     const allProducts = await ProductService.getAllProduct();
-
     if (allProducts) {
       return res.status(200).send({
         data: allProducts
@@ -72,29 +59,19 @@ app.get('/', async (req, res) => {
 
 //  function for getting a  product by Id
 app.get('/:productId/', async (req, res) => {
-
   try {
-
     await dbConnection();
-
     const {productId} = req.params;
-
     const getProduct = await ProductService.getProductById({productId});
-
     if(getProduct) {
       return res.status(200).send({
         data: getProduct
       })
-
     }
-
   } catch (error) {
      //  handle errors here
      console.log(error, "error!!");
-
   }
-
 });
-
 
 module.exports.handler = serverless(app);
