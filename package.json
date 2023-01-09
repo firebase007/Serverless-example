@@ -17,7 +17,7 @@
   "author": "Alexander Nnakwue",
   "license": "MIT",
   "devDependencies": {
-    "serverless-offline": "^5.12.0",
+    "serverless-offline": "^12.0.4",
     "serverless-dotenv": "^1.0.0-beta.2",
     "serverless-dotenv-plugin": "^2.1.1"
   }
